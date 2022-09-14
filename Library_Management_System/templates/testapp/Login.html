@@ -1,0 +1,25 @@
+{% extends "testapp/base.html" %}
+{% block content %}
+
+<div class="row p-5">
+  <div class="col-sm-3 offset-5">
+    <h4 class="text-center alert alert-info">Sign Up</h4>
+    <form method="post" action="{% url 'login' %}">
+      {%csrf_token%}
+      {{form.as_p}}
+      <br>
+      <center>
+        <input type="submit" class="btn btn-success" value="Login">
+        <a href="/register" class="btn btn-info">Sign Up</a>
+      </center>
+    </form>
+  </div>
+</div>
+{% if messages %}
+<script>
+    {% for message in messages %}
+        alert("{{ message }}");
+    {% endfor %}
+   </script>
+{% endif %}
+{% endblock content %}

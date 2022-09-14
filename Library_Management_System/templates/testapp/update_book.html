@@ -1,0 +1,24 @@
+{% extends "testapp/base.html" %}
+{% block content %}
+
+<div class="row p-5">
+  <div class="col-sm-3 offset-5">
+    <h4 class="alert alert-info">Update Book</h4>
+    <form method="post">
+      {%csrf_token%}
+      {{form.as_p}}
+      <center>
+      <input type="submit" class="btn btn-success" value="Update">
+      <a href="/" class="btn btn-info">Back</a>
+      </center>
+    </form>
+  </div>
+</div>
+{% if messages %}
+<script>
+    {% for message in messages %}
+        alert("{{ message }}");
+    {% endfor %}
+   </script>
+{% endif %}
+{% endblock content %}
